@@ -13,7 +13,7 @@ type Currency struct {
 	BuyRate, SellRate float64
 }
 
-func (curr *Currency) getBuyRateString() (string, error) {
+func (curr *Currency) GetBuyRateString() (string, error) {
 	if curr.BuyRate <= 0 {
 		return "", errors.New("Buy rate is less than or equal to zero") 
 	}
@@ -25,7 +25,7 @@ func (curr *Currency) getBuyRateString() (string, error) {
 	return strconv.FormatFloat(curr.BuyRate, 'f', 4, 64), nil
 }
 
-func (curr *Currency) getSellRateString() (string, error) {
+func (curr *Currency) GetSellRateString() (string, error) {
 	if curr.SellRate <= 0 {
 		return "", errors.New("Sell rate is less than or equal to zero")
 	}
