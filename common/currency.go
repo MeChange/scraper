@@ -7,12 +7,13 @@ import (
 	"strconv"
 )
 
-// A Currency carries a quote and a buy and sell rate
+// A Currency carries a quote, buy rate, and sell rate
 type Currency struct {
 	Quote string
 	BuyRate, SellRate float64
 }
 
+// GetBuyRateString get buy rate as formatted string
 func (curr *Currency) GetBuyRateString() (string, error) {
 	if curr.BuyRate <= 0 {
 		return "", errors.New("Buy rate is less than or equal to zero") 
@@ -25,6 +26,7 @@ func (curr *Currency) GetBuyRateString() (string, error) {
 	return strconv.FormatFloat(curr.BuyRate, 'f', 4, 64), nil
 }
 
+// GetSellRateString get sell rate as formatted string
 func (curr *Currency) GetSellRateString() (string, error) {
 	if curr.SellRate <= 0 {
 		return "", errors.New("Sell rate is less than or equal to zero")
